@@ -9,45 +9,16 @@
         <div class="container">
             <h2 class="text-center">Explore Foods</h2>
 
-            <a href="category-foods.html">
+            {% for x in data %}
+            <a href="{% url 'category_foods' x.id %}">
             <div class="box-3 float-container">
-                <img src="{% static 'media/images/pizza.jpg' %}" alt="Pizza" class="img-responsive img-curve">
+                <img src="{{x.img.url}}" alt="Pizza" class="img-responsive img-curve">
 
-                <h3 class="float-text text-white">Pizza</h3>
+                <h3 class="float-text text-white">{{x.title}}</h3>
             </div>
             </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="{% static 'media/images/burger.jpg'%}" alt="Burger" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Burger</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="{% static 'media/images/momo.jpg' %}" alt="Momo" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Momo</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="{% static 'media/images/pizza.jpg' %}" alt="Pizza" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Pizza</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="{% static 'media/images/burger.jpg' %}" alt="Burger" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Burger</h3>
-            </div>
-            </a>            
+        {% endfor %}
+          
             <div class="clearfix"></div>
         </div>
     </section>
