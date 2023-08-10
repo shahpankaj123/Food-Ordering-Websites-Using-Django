@@ -29,7 +29,7 @@
             {% for n in data %}
             <div class="food-menu-box">
                 <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                    <img src="{{n.fimg.url}}" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
                 </div>
 
                 <div class="food-menu-desc">
@@ -40,7 +40,7 @@
                     </p>
                     <br>
 
-                    <a href="#" class="btn btn-primary">Order Now</a>
+                    <a href="{% url 'order' n.id %}" class="btn btn-primary">Order Now</a>
                 </div>
             </div>
             {% endfor %}

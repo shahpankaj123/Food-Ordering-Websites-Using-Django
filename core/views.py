@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from core.models import *
 from datetime import date
 
@@ -38,7 +38,7 @@ def order(request,id):
     return render(request,'order.html',{'data':fooditm})
 
 def order1(request):
-     if request.method=='POST':
+    if request.method=='POST':
         fooditm=request.POST.get('food')
         price=request.POST.get('price')
         qty=request.POST.get('qty')
@@ -66,13 +66,13 @@ def order1(request):
                        customer_email=em,
                        customer_address=address
                        )
-        oderitem.save()
         
-     fooditem=food.objects.all()
-     category_food=category.objects.all()
-     data={'food':fooditem,
+        oderitem.save()
+        fooditem=food.objects.all()
+        category_food=category.objects.all()
+        data={'food':fooditem,
           'category':category_food }
-     return render(request,'index.html',data)   
+        return render(request,'index.html',data) 
         
         
         

@@ -9,7 +9,7 @@ class category(models.Model):
         ('N', 'no'),
     )
     title=models.CharField(max_length=100)
-    img=models.FileField(upload_to='media/images/')
+    img=models.FileField(upload_to='images/')
     features=models.CharField(choices=features_CHOICES,max_length=1)
     active=models.CharField(choices=features_CHOICES,max_length=1)
     
@@ -20,7 +20,7 @@ class food(models.Model):
     ftitle=models.CharField(max_length=50)
     fdesc=models.CharField(max_length=100)
     price=models.IntegerField()
-    fimg=models.FileField(upload_to='media/food/') 
+    fimg=models.FileField(upload_to='food/') 
     features_CHOICES = (
         ('Y', 'yes'),
         ('N', 'no'),

@@ -63,7 +63,7 @@
         {% for x in category %}
             <a href="{% url 'category_foods' x.id %}">
             <div class="box-3 float-container">
-                <img src="{{x.img.url}}" alt="Pizza" class="img-responsive img-curve">
+                <img src="media/{{x.img}}" alt="Pizza" class="img-responsive img-curve">
 
                 <h3 class="float-text text-white">{{x.title}}</h3>
             </div>
@@ -83,7 +83,7 @@
             {% for n in food  %}
             <div class="food-menu-box">
                 <div class="food-menu-img">
-                    <img src="{{n.fimg}}" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                    <img src="media/{{n.fimg}}" alt="Chicke Hawain Pizza" class="img-responsive img-curve" width=50px height=125px>
                 </div>
 
                 <div class="food-menu-desc">
