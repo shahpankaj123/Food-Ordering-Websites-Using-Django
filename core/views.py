@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from core.models import *
 from datetime import date
+from django.contrib import messages
 
 # Create your views here.
 
@@ -26,7 +27,10 @@ def category_foods(request,id):
     return render(request,'category-foods.html',{'data':fooditem,'data1':categoryitem})
 
 def foods_search(request):
-    return render(request,'foods-search.html')
+    if request.method=='POST':
+      data=request.POST.get('search')
+      fooditem=food.objects.filter(ftitle__icontains=data)
+      return render(request,'food-search.html',{'dt':fooditem,'search':data})
 
 
 def foods(request):
@@ -68,11 +72,10 @@ def order1(request):
                        )
         
         oderitem.save()
-        fooditem=food.objects.all()
-        category_food=category.objects.all()
-        data={'food':fooditem,
-          'category':category_food }
-        return render(request,'index.html',data) 
+        messages.success(request, "Ordered successfully.")
+       
+        return redirect('/') 
+    
         
         
         
